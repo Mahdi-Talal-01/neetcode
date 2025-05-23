@@ -4,18 +4,18 @@
   2. we can sort the array ,and check n and n+1 => O(n log n)
   3.hashset=> cannot has dublicate , search of set has(value) big O(1)
  */
-const set = new Set();
-const containDublicate = (nums) => {
-    // loop over nums
-    for (num of nums){
-        if(hashset(num)) return true
-        
+class Solution {
+  hasDuplicate(nums) {
+    const set = new Set();
+    for (const num of nums) {
+      if (set.has(num)) return true;
+      set.add(num);
     }
-     return false
-};
-const hashset = (value) =>{
-    if (set.has(value)) return true;
-    set.add(num);
+    return false;
+  }
 }
-console.log(containDublicate([1,2,3,4]));
 
+// Example usage:
+const solution = new Solution();
+console.log(solution.hasDuplicate([1, 2, 3, 4])); // false
+console.log(solution.hasDuplicate([1, 2, 3, 1])); // true
